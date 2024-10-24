@@ -1,0 +1,30 @@
+// Seleccionamos elementos del DOM
+const formulario = document.querySelector('form');
+const nombreInput = document.getElementById('nombre');
+const saludo = document.querySelector('.saludo');
+
+// Función para saludar al usuario
+function saludar() {
+  const nombre = nombreInput.value;
+  if (nombre) {
+    saludo.textContent = `¡Hola, ${nombre}! Bienvenido.`;
+  } else {
+    alert('Por favor, ingresa tu nombre.');
+  }
+}
+
+// Escuchamos el evento de envío del formulario
+formulario.addEventListener('submit', (event) => {
+  event.preventDefault(); // Evitamos el envío del formulario por defecto
+  saludar();
+});
+
+// Función para cambiar el color de fondo aleatoriamente
+function cambiarColor() {
+  const colores = ['red', 'green', 'blue', 'purple', 'orange'];
+  const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+  document.body.style.backgroundColor = colorAleatorio;
+}
+
+// Llamamos a la función cada 5 segundos
+setInterval(cambiarColor, 5000);
